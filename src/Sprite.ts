@@ -7,10 +7,13 @@ export abstract class Sprite {
     scaleX = 1;
     scaleY = 1;
     lineWidth = 1;
-    color: string;
+    closePath = true;
+    fillColor: string;
+    strokeColor: string;
 
-    constructor(color: string = '#000000') {
-        this.color = parseColor(color) as string;
+    constructor(fillColor: string = '#000000', strokeColor: string = '#000000') {
+        this.fillColor = parseColor(fillColor) as string;
+        this.strokeColor = parseColor(strokeColor) as string;
     }
 
     draw(context: CanvasRenderingContext2D) {
@@ -20,12 +23,17 @@ export abstract class Sprite {
         context.rotate(this.rotation);
         context.scale(this.scaleX, this.scaleY);
         context.lineWidth = this.lineWidth;
-        context.fillStyle = this.color;
+        context.strokeStyle = this.strokeColor;
+        context.fillStyle = this.fillColor;
 
         context.beginPath();
         this.onDraw(context);
-        context.closePath();
-        context.fill();
+        if (this.closePath) {
+            context.closePath();
+        }
+        if (this.fillColor) {
+            context.fill();
+        }
         if (this.lineWidth > 0) {
             context.stroke();
         }
