@@ -33,5 +33,5 @@ export abstract class Sprite {
         context.restore();
     }
 
-    abstract onDraw(context: CanvasRenderingContext2D);
+    protected abstract onDraw(context: CanvasRenderingContext2D);
 }
