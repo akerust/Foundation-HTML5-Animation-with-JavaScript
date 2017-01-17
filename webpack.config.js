@@ -1,5 +1,7 @@
+var LiveReloadPlugin = require('webpack-livereload-plugin');
+
 module.exports = {
-    entry: '<entry ts>',
+    entry: process.env.ENTRY,
     output: {
         filename: './dist/bundle.js'
     },
@@ -12,5 +14,8 @@ module.exports = {
             // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
             { test: /\.tsx?$/, loader: 'ts-loader' }
         ]
-    }
+    },
+    plugins: [
+        new LiveReloadPlugin({})
+    ]
 };
