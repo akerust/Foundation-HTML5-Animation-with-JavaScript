@@ -64,7 +64,7 @@ export function captureTouch(element: HTMLElement): ITouch {
     return touch;
 }
 
-export function parseColor(color: string | number, toNumber: boolean): string | number {
+export function parseColor(color: string | number, toNumber: boolean = false): string | number {
     if (toNumber === true) {
         if (typeof color === 'number') {
             return (color | 0);
