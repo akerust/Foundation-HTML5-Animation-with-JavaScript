@@ -1,4 +1,4 @@
-import { Ball } from '../Ball';
+import { Ball } from '../../Ball';
 
 window.onload = () => {
     var canvas = document.getElementById('canvas') as HTMLCanvasElement,
