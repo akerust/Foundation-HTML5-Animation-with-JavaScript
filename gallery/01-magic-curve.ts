@@ -1,4 +1,4 @@
-import { MagicCurve } from './MagicCurve';
+import { MagicCurve } from './lib/MagicCurve';
 
 window.onload = () => {
     let canvas = document.getElementById('canvas') as HTMLCanvasElement,

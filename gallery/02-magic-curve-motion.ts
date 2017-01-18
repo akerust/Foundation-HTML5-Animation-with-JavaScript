@@ -1,4 +1,4 @@
-import { MagicCurve } from './MagicCurve';
+import { MagicCurve } from './lib/MagicCurve';
 
 window.onload = () => {
     let body = document.getElementsByTagName('body')[0],

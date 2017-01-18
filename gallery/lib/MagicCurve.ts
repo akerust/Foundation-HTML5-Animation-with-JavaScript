@@ -1,5 +1,5 @@
-import { Sprite } from '../../Sprite';
-import { IPoint } from '../../Point';
+import { Sprite } from './Sprite';
+import { IPoint } from './Point';
 
 export class MagicCurve extends Sprite {
     static NUM_CTRL_POINTS = 5;
