@@ -2,7 +2,7 @@ import { Sprite } from './Sprite';
 import { IPoint } from './Point';
 
 export class MagicCurve extends Sprite {
-    static NUM_CTRL_POINTS = 5;
+    static NUM_POINTS = 5;
     static MINIMAL_HEIGHT = 100;
     static HEIGHT_RANGE = 50;
     static MINIMAL_SPEED = 0.01;
@@ -20,7 +20,7 @@ export class MagicCurve extends Sprite {
 
     constructor(public strokeColor: string = '#000000') {
         super(null, strokeColor);
-        for (let i = 0; i < MagicCurve.NUM_CTRL_POINTS; i++) {
+        for (let i = 0; i < MagicCurve.NUM_POINTS; i++) {
             this.angles.push(Math.random() * Math.PI * 2);
 
             let range = Math.random() * MagicCurve.AMPLITUDE_RANGE + MagicCurve.MINIMAL_AMPLITUDE;
@@ -48,7 +48,7 @@ export class MagicCurve extends Sprite {
         };
 
         context.moveTo(this.points[0].x, this.points[0].y);
-        for (var i = 1; i < MagicCurve.NUM_CTRL_POINTS - 2; i++) {
+        for (var i = 1; i < MagicCurve.NUM_POINTS - 2; i++) {
             ctrlPoint.x = (this.points[i].x + this.points[i + 1].x) / 2;
             ctrlPoint.y = (this.points[i].y + this.points[i + 1].y) / 2;
             context.quadraticCurveTo(this.points[i].x, this.points[i].y, ctrlPoint.x, ctrlPoint.y);
@@ -57,7 +57,7 @@ export class MagicCurve extends Sprite {
     }
 
     protected next() {
-        for (let i = 0; i < MagicCurve.NUM_CTRL_POINTS; i++) {
+        for (let i = 0; i < MagicCurve.NUM_POINTS; i++) {
             this.angles[i] += this.speeds[i];
             this.points[i].x += Math.sin(this.angles[i]) * this.ranges[i];
         }
